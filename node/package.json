@@ -1,0 +1,27 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Sample big data project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhaniSasankVaddi/cs9864-pvaddi-project.git"
+  },
+  "author": "Phani Sasank Vaddi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhaniSasankVaddi/cs9864-pvaddi-project/issues"
+  },
+  "homepage": "https://github.com/PhaniSasankVaddi/cs9864-pvaddi-project#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19"
+  }
+}

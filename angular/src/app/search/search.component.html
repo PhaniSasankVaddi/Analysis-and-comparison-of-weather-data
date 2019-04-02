@@ -1,0 +1,77 @@
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Search City
+            </button>
+            </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="col-md-3 offset-md-5">
+                <div class = "formcontainer">
+                    <div class = "formbody">
+                    <form>
+                        <div class="form-group">
+                            <div>
+                                <label for="citynamefield">City Name<sup>*</sup></label>
+                                <input type="text" class="form-control" id="cityname_search" name="citynameField_search" 
+                                placeholder="Enter City Name" [(ngModel)] = "city_name" required/>
+                            </div>
+                            <div class = "actionbutton">
+                                <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              List of Virtual Machines
+            </button>
+            </h5>
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Temperature (K)</th>
+                        <th scope="col">Pressure</th>
+                        <th scope="col">Humidity</th>
+                        <th scope="col">Min Temperature</th>
+                        <th scope="col">Max Temperature</th>
+                        <th scope="col">Change in temperature(%)</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let weather of weatherData; let i=index">
+                        <td scope="row">{{i+1}}</td>
+                        <td>{{weather.temp}}</td>
+                        <td>{{weather.pressure}}</td>
+                        <td>{{weather.humidity}}</td>
+                        <td>{{weather.temp_min}}</td>
+                        <td>{{weather.temp_max}}</td>
+                        <td>{{change_temp}}</td>        
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
