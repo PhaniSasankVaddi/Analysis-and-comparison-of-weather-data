@@ -12,10 +12,12 @@ export class SearchComponent implements OnInit {
   
   weatherData:any = [];
   city_name: String;
-  change_temp:any;
+  change_temp:Number = 0;
   country: String;
 
-  constructor(private appService : AppService,private router : Router) { }
+  constructor(private appService : AppService,private router : Router) { 
+    
+  }
 
   ngOnInit() {
     if(!localStorage.getItem('jwt')){
@@ -24,6 +26,7 @@ export class SearchComponent implements OnInit {
   }
   
   onSearch(){
+    
     let city_json = {
       'city_name':this.city_name,
       'country': this.country
@@ -31,8 +34,9 @@ export class SearchComponent implements OnInit {
     //console.log(city_json)
     this.appService.getParamRequest('findcity',city_json).subscribe((city: any)=>{
       if(city){
-        this.get_present_data(city.id);
-        //this.get_historical_data(cityName);
+        var temp = this.get_present_data(city.id);
+        var past_temp = this.get_historical_data(city.id);
+        //this.change_temp = ((parseFloat(temp)-parseFloat(past_temp))/parseFloat(past_temp))*100;
       }
     })
   }
@@ -41,11 +45,17 @@ export class SearchComponent implements OnInit {
     this.appService.getWeatherData(city_id).subscribe((data: any)=>{
       if(data.main){
         this.weatherData.push(data.main);
+        return data.main.temp;
       }
     })
   }
   
-  get_historical_data(){
+  get_historical_data(city_id){
+    this.appService.gethistoricalData('gethistdata',city_id).subscribe((data:any)=>{
+      if(data){
+        return data;
+      }
+    })
     
   }
 

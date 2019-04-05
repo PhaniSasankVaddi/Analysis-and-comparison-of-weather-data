@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 //adding cross origin
-  app.use(cors());
+app.use(cors());
 app.use(cors({
     options: '*',
     'Access-Control-Allow-Origin': '*'
