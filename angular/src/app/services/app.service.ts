@@ -14,7 +14,9 @@ const httpOptions = {
 export class AppService {
 
   baseUrl = "https://bigdataproject-pvaddi.c9users.io:8080/";
-  weatherUrl = "http://samples.openweathermap.org/data/2.5/weather?id=";
+  weatherUrl = "https://api.openweathermap.org/data/2.5/weather?id=";
+  
+  historicalUrl = "https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/1b60dd1c-f372-4ae5-853f-b60bb705fc00/view?access_token=f659345eb886936ef7e7b271f5b8ea000a3bf6530916694c4a66b9b1d970c34c"
 
   constructor(private http : HttpClient) { 
   }
@@ -28,10 +30,11 @@ export class AppService {
   }
   
   getParamRequest(route,city_json){
-    return this.http.get(this.baseUrl+route,city_json);
+    return this.http.post(this.baseUrl+route,city_json);
   }
   
   getWeatherData(city_id){
+   
     this.weatherUrl = this.weatherUrl+city_id;
     this.weatherUrl = this.weatherUrl+"&appid=dc972d3944682b950e42c98ee9525d34";
     return this.http.get(this.weatherUrl);

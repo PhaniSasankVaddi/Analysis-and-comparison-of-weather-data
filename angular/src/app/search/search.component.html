@@ -18,7 +18,12 @@
                             <div>
                                 <label for="citynamefield">City Name<sup>*</sup></label>
                                 <input type="text" class="form-control" id="cityname_search" name="citynameField_search" 
-                                placeholder="Enter City Name" [(ngModel)] = "city_name" required/>
+                                placeholder="Enter City" [(ngModel)] = "city_name" required/>
+                            </div>
+                            <div>
+                                <label for="countryfield">Country<sup>*</sup></label>
+                                <input type="text" class="form-control" id="country_search" name="countryField_search" 
+                                placeholder="Enter Country" [(ngModel)] = "country" required/>
                             </div>
                             <div class = "actionbutton">
                                 <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
@@ -36,7 +41,7 @@
         <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              List of Virtual Machines
+              Weather Report
             </button>
             </h5>
         </div>

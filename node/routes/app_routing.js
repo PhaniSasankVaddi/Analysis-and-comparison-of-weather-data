@@ -1,15 +1,15 @@
 var jwt = require('jsonwebtoken');
+var login_dao = require("../dao/login_dao");
+var city_dao = require("../dao/city_dao");
 
 module.exports = function(app){
-  
-  var login_dao = require("../dao/login_dao");
-  var city_dao = require("../dao/city_dao");
-  
+ 
   app.post('/signup',login_dao.register);
   
   app.post('/signin',login_dao.login);
   
-  app.get('/findcity', city_dao.search_city);
+  app.post('/findcity', city_dao.search_city);
+  
 
 }
 

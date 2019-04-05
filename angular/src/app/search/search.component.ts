@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   weatherData:any = [];
   city_name: String;
   change_temp:any;
+  country: String;
 
   constructor(private appService : AppService,private router : Router) { }
 
@@ -24,8 +25,10 @@ export class SearchComponent implements OnInit {
   
   onSearch(){
     let city_json = {
-      'city_name':this.city_name
+      'city_name':this.city_name,
+      'country': this.country
     }
+    //console.log(city_json)
     this.appService.getParamRequest('findcity',city_json).subscribe((city: any)=>{
       if(city){
         this.get_present_data(city.id);
